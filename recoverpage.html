@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Password </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="container">
+            <form onsubmit="handleSubmitForm(event)">
+                <header class="main-header">
+                    <h1>Create your new Password</h1>
+
+                </header>
+
+                <div class="input-group">
+                    <label for="">New Password</label>
+                    <br />
+                    <input type="password" name="password" id="password" placeholder="Enter your secret password..." />
+                </div>
+
+                <div class="input-group">
+                    <label for="">Confirm yor new Password</label>
+                    <br />
+                    <input type="password" name="confPsw" id="confPsw"
+                        placeholder="Confirm your new password..." />
+                </div>
+
+                <input type="hidden" name="resetToken" id="resetToken" valie="3487">                
+
+                <button class="btn-primary">Confirm Password </button>
+                <br />
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmitForm(event) {
+            //impede o redirecionamento no momento que envia o form
+            event.preventDefault()
+
+            //pega os dados dos inputs
+            const password = document.getElementById("password").value
+            const confPsw = document.getElementById("confPsw").value
+            const resetToken = document.getElementById("resetToken").value
+
+            //valida o campo de email
+            if (password == "") {
+                alert("Confirm your Password ...")
+                return
+            }
+
+            //valida o campo de senha
+            if (confPsw == "") {
+                alert("Confirm your Password ...")
+                return
+            }
+
+            //cria o objeto com os dados
+            const data = {
+                password: password,
+                confPsw: confPsw,
+                resetToken: resetToken,
+            }
+
+            //faz um console log
+            console.log(data)
+        }
+    </script>
+</body>
+
+</html>

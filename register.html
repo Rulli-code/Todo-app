@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your ToDo account </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="container">
+            <form onsubmit="handleSubmitForm(event)">
+            <header class="main-header">
+                <h1>Create your ToDo account</h1>
+            </header>
+            <div class="input-group">
+                <label for="">First Name</label>
+                <br />
+                <input type="name" name="name" id="name" placeholder=" Insert here..." />
+            </div>
+
+            <div class="input-group">
+                <label for="">Last Name</label>
+                <br />
+                <input  type="lastName" name="lastName" id="lastName" placeholder=" Insert here..." />
+            </div>
+
+            <div class="input-group">
+                <label for="">Email</label>
+                <br />
+                <input type="email" name="email" id="email" placeholder="Enter your best email adress ..." />
+            </div>
+
+            <div class="input-group">
+                <label for=""> Confirm your Email</label>
+                <br />
+                <input type="confEmail" name="confEmail" id="confEmail" placeholder="Confirm your email adress ..." />
+            </div>
+
+            <div class="input-group">
+                <label for=""> Password</label>
+                <br />
+                <input type="password" name="password" id="password" placeholder="Enter your secret Password ..." />
+            </div>
+
+            <div class="input-group">
+                <label for=""> Confirm your Password</label>
+                <br />
+                <input type="password" name="confPsw" id="confPsw" placeholder=" Confirm your Password ..." />
+            </div>
+
+            <button class="btn-primary">Register Now </button>
+            <br />
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmitForm(event) {
+            //impede o redirecionamento no momento que envia o form
+            event.preventDefault()
+
+            //pega os dados dos inputs
+            const name = document.getElementById("name").value
+            const lastName = document.getElementById("lastName").value
+            const email = document.getElementById("email").value
+            const confEmail = document.getElementById("confEmail").value
+            const password = document.getElementById("password").value
+            const confPsw = document.getElementById("confPsw").value
+
+            //valida o campo de name
+            if (name == "") {
+                alert("The information of your name is missing.")
+                return
+            }
+
+            //valida o campo de lastName
+            if (lastName == "") {
+                alert("The information of your last name is missing.")
+                return
+            }
+
+
+            //valida o campo de email
+            if (email == "") {
+                alert("Inform your email address.")
+                return
+            }
+
+            //valida o campo de confEmail
+            if (confEmail == "") {
+                alert("Your email address don't match.")
+                return
+            }
+
+            //valida o campo de Password
+            if (password == "") {
+                alert("Inform your password.")
+                return
+            }
+
+            //valida o campo de confPsw
+            if (confPsw == "") {
+                alert("Your password don't match.")
+                return
+            }
+
+            //cria o objeto com os dados
+            const data = {
+                name: name,
+                lastName: lastName,
+                email: email,
+                confEmail: confEmail,
+                password: password,
+                confPsw: confPsw
+            }
+
+            //faz um console log
+            console.log(data)
+        }
+    </script>
+
+</body>
+
+</html>

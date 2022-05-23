@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login ToDo app</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="login-page">
+    <div class="container">
+      <form onsubmit="handleSubmitForm(event)">
+        <header>
+          <h1>Sign In</h1>
+          <div>
+            <p>Don't have a account?</p>
+            <a href="/register.html">Register.</a>
+          </div>
+
+          <br />
+
+          <div>
+            <p>Forget your password?</p>
+            <a href="/forgotpassword.html">Password.</a>
+          </div>
+        </header>
+
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Insert your email...">
+        </div>
+        <div class="input-group">
+          <label for="password">Senha</label>
+          <input type="password" name="password" id="password" placeholder="Insert your password...">
+        </div>
+        <button class="btnprimary">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function handleSubmitForm(event) {
+      //impede o redirecionamento no momento que envia o form
+      event.preventDefault()
+
+      //pega os dados dos inputs
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password").value
+
+      //valida o campo de email
+      if (email == "") {
+        alert("Confirm your email adress ...")
+        return
+      }
+
+      //valida o campo de senha
+      if (password == "") {
+        alert("Confirm your Password ...")
+        return
+      }
+
+      //cria o objeto com os dados
+      const data = {
+        email: email,
+        password: password
+      }
+
+      //faz um console log
+      console.log(data)
+    }
+  </script>
+</body>
+
+</html>
